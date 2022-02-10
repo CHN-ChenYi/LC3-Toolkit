@@ -214,9 +214,6 @@ class Machine {
     std::fill(reg_, reg_ + sizeof(reg_) / sizeof(reg_[0]), kDefaultValue);
     Address pc = start_pc_;
     while (decoder_.Decode(memory_[pc])(pc, condition_, reg_, memory_)) {
-#ifndef ONLINE_JUDGE
-      std::cerr << std::hex << pc << std::endl;
-#endif
     }
   }
   friend std::istream& operator>>(std::istream& is, Machine& other) {
